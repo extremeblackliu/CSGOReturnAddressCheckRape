@@ -10,14 +10,14 @@ namespace Hooks
 		{
 			Sleep(2000);
 		}
-		//55 8B EC 56 8B F1 33 C0 57 8B 7D 08 8B 8E ? ? ? ? 85 C9 7E 12 3B 3C 86 - client.dll + engine.dll + studiorender.dll
+		//55 8B EC 56 8B F1 33 C0 57 8B 7D 08 8B 8E ? ? ? ? 85 C9 7E - client.dll + engine.dll + studiorender.dll
 		HMODULE client, engine, studiorender, materialsystem;
 		client = GetModuleHandleA("client.dll");
 		engine = GetModuleHandleA("engine.dll");
 		studiorender = GetModuleHandleA("studiorender.dll");
 		materialsystem = GetModuleHandleA("materialsystem.dll");
 		
-		const char* sig = "55 8B EC 56 8B F1 33 C0 57 8B 7D 08 8B 8E ? ? ? ? 85 C9 7E 12 3B 3C 86";
+		const char* sig = "55 8B EC 56 8B F1 33 C0 57 8B 7D 08 8B 8E ? ? ? ? 85 C9 7E";
 
 		void* result = Utils::PatternScan(client, sig);
 		void* result1 = Utils::PatternScan(engine, sig);
@@ -25,7 +25,7 @@ namespace Hooks
 		void* result3 = Utils::PatternScan(materialsystem, sig);
 		if (!result || !result1 || !result2 || !result3)
 		{
-			MessageBoxA(0, "�ƹ�ʧ��", "LauncherSU.net", 0);
+			MessageBoxA(0, "ÈÆ¹ýÊ§°Ü", "LauncherSU.net", 0);
 			FreeLibraryAndExitThread(mod, 0);
 			return;
 		}
