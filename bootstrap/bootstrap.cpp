@@ -25,7 +25,7 @@ namespace Hooks
 		void* result3 = Utils::PatternScan(materialsystem, sig);
 		if (!result || !result1 || !result2 || !result3)
 		{
-			MessageBoxA(0, "ÈÆ¹ýÊ§°Ü", "LauncherSU.net", 0);
+			MessageBoxA(0, "Bypass was failed", "RACP", 0);
 			FreeLibraryAndExitThread(mod, 0);
 			return;
 		}
